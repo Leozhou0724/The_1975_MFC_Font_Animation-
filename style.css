@@ -3,12 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+@font-face {
+    font-family: "Roboto";
+    src: url("./fonts/Roboto-Medium.ttf");
+}
 body {
     font-family: "Roboto", sans-serif;
-    height: 90vh;
+    height: 100vh;
 }
-
+main {
+    height: 92vh;
+}
 header {
     display: flex;
     flex-direction: column;
@@ -52,11 +57,11 @@ header h2 {
 }
 
 canvas {
-    margin: 3rem;
+    margin: 1rem;
 }
 
 img {
-    margin: 3rem;
+    margin: 1rem;
 }
 .pic {
     display: flex;
@@ -65,7 +70,7 @@ img {
 }
 
 footer {
-    height: 10vh;
+    height: 8vh;
     background-color: rgb(99, 99, 99);
     color: white;
     padding: 1rem;
@@ -75,4 +80,26 @@ footer h4 {
 }
 footer h4 a {
     color: white;
+}
+
+.tempo {
+    margin: 1rem;
+    width: 30%;
+}
+
+.tempo-slider {
+    padding: 0.2rem;
+    -webkit-appearance: none;
+    margin: 1rem 0rem;
+    width: 100%;
+    position: relative;
+    background: rgb(88, 88, 88);
+    cursor: pointer;
+    border-radius: 1rem;
+}
+
+.tempo p {
+    font-size: 1.2rem;
+    margin: 1rem;
+    text-align: center;
 }

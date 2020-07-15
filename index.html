@@ -3,32 +3,45 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
-            rel="stylesheet"
-        />
         <link rel="stylesheet" href="./style.css" />
         <title>MFC Animation</title>
     </head>
     <body>
-        <header>
-            <h2>
-                <a href="./index.html" id="logo"
-                    >The 1975 MFC Style Font Animation</a
-                >
-            </h2>
-            <form class="input-form">
-                <input type="text" name="search" class="input" value="MFC" />
-                <button type="submit" class="submit-btn">GO</button>
-            </form>
-            <h3>Right klick to download the .gif & .png files</h3>
-        </header>
+        <main>
+            <header>
+                <h2>
+                    <a href="./index.html" id="logo"
+                        >The 1975 MFC Style Font Animation</a
+                    >
+                </h2>
+                <form class="input-form">
+                    <input
+                        type="text"
+                        name="search"
+                        class="input"
+                        value="MFC"
+                    />
+                    <button type="submit" class="submit-btn">GO</button>
+                </form>
+                <h3>Right klick to download the .gif & .png files</h3>
+                <!-- <div class="tempo">
+                <input
+                    type="range"
+                    class="tempo-slider"
+                    max="10"
+                    min="50"
+                    value="70"
+                />
+                <p>Speed: <span class="tempo-nr">50</span></p>
+            </div> -->
+            </header>
 
-        <div class="pic">
-            <img class="gifpic" src="./MFC.gif" alt="" />
+            <div class="pic">
+                <img class="gifpic" src="./MFC.gif" alt="" />
 
-            <canvas class="cvs" width="800" height="500"></canvas>
-        </div>
+                <canvas class="cvs" width="800" height="500"></canvas>
+            </div>
+        </main>
 
         <footer>
             <h4>Leo Zhou &copy; 2020</h4>

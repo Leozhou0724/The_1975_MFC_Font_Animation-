@@ -2,8 +2,17 @@ const canvas = document.querySelector(".cvs");
 const ctx = canvas.getContext("2d");
 const input = document.querySelector(".input");
 const form = document.querySelector(".input-form");
+// const tempoSlider = document.querySelector(".tempo-slider");
+// const tempoText = document.querySelector(".tempo-nr");
 let text = "MFC";
+let speed = 20;
 drawsample([50, 75, 95], text);
+
+// tempoSlider.addEventListener("input", function (e) {
+//     speed = 120 - e.target.value;
+//     tempoText.innerText = 120 - speed;
+// });
+
 input.addEventListener("input", (e) => {
     text = e.target.value.toUpperCase();
 });
@@ -20,7 +29,7 @@ form.addEventListener("submit", (e) => {
     for (i = 0; i < 38; i++) {
         //addoneframe([37 + 2 * i, 74 - i, 111 - i]);
         let frame = draw([37 + 2 * i, 74 - i, 111 - i], text);
-        gif.addFrame(frame, { delay: 50 });
+        gif.addFrame(frame, { delay: speed });
     }
     const gifpic = document.querySelector(".gifpic");
     gif.on("finished", function (blob) {
@@ -29,15 +38,11 @@ form.addEventListener("submit", (e) => {
     });
     gif.render();
 });
-// function addoneframe(cut) {
-//     let frame = draw(cut, text);
-//     gif.addFrame(frame, { delay: 50 });
-// }
 function drawoneword(text, pos, cuttop, cutbot, width) {
     ctx.beginPath();
     ctx.font = `500 150px Roboto`;
     let height = 150 * 0.71;
-    height = 107;
+    height = 108;
     ctx.fillText(text, 50, pos);
     ctx.clearRect(50, pos - height - 1, width, cuttop);
     ctx.clearRect(50, pos - cutbot + 1, width, cutbot);
@@ -52,7 +57,7 @@ function drawsample(cut, text) {
     let topp = [0, 0, 0];
     let bott = cut;
     let mid = 300;
-    let height = 107;
+    let height = 108;
     let gap = 5;
     //3-layer
     drawoneword(
@@ -85,8 +90,20 @@ function drawsample(cut, text) {
         width
     );
     //1-layer
-    drawoneword(text, mid - height - gap + bott[0], topp[0], bott[0], width);
-    drawoneword(text, mid + height + gap - bott[0], bott[0], topp[0], width);
+    drawoneword(
+        text,
+        mid - height - gap + bott[0],
+        topp[0],
+        bott[0] + 1,
+        width
+    );
+    drawoneword(
+        text,
+        mid + height + gap - bott[0],
+        bott[0] + 1,
+        topp[0],
+        width
+    );
     //mid
     drawoneword(text, mid, 0, 0, width);
 }
@@ -97,7 +114,7 @@ function drawone(text, pos, cuttop, cutbot, width, ctx) {
     ctx.fillStyle = "#000000";
     ctx.font = `500 150px Roboto`;
     let height = 150 * 0.71;
-    height = 107;
+    height = 108;
     ctx.fillText(text, 50, pos);
     ctx.fillStyle = "#FFFFFF";
     ctx.fillRect(50, pos - height - 1, width, cuttop);
@@ -118,7 +135,7 @@ function draw(cut, text) {
     let topp = [0, 0, 0];
     let bott = cut;
     let mid = 300;
-    let height = 107;
+    let height = 108;
     let gap = 5;
     ctx.fillStyle = "#FFFFFF";
     ctx.fillRect(0, 0, width + 100, 500);
@@ -157,8 +174,22 @@ function draw(cut, text) {
         ctx
     );
     //1-layer
-    drawone(text, mid - height - gap + bott[0], topp[0], bott[0], width, ctx);
-    drawone(text, mid + height + gap - bott[0], bott[0], topp[0], width, ctx);
+    drawone(
+        text,
+        mid - height - gap + bott[0],
+        topp[0],
+        bott[0] + 1,
+        width,
+        ctx
+    );
+    drawone(
+        text,
+        mid + height + gap - bott[0],
+        bott[0] + 1,
+        topp[0],
+        width,
+        ctx
+    );
     //mid
     drawone(text, mid, 0, 0, width, ctx);
 
